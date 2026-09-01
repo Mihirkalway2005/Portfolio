@@ -19,11 +19,11 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 /**
  * Unified Premium Portfolio Button
  *
- * Physical Micro-Interaction Architecture:
- * - Rest: The orange circular action element rests on the right side containing the arrow.
- * - Hover: The single orange circular element scales fluidly from the right across the pill,
- *   washing over the background while the text subtly glides and the arrow glides right.
- * - Exit: The orange disc smoothly collapses back into the right circular action area (450ms).
+ * Framed Physical Micro-Interaction (GPU-Accelerated & Smooth):
+ * - Outer container provides structured pill geometry and subtle outer elevation.
+ * - Inner white border & padding track encloses the expanding orange action disc.
+ * - Slower, ultra-smooth radial expansion (850ms) using hardware-composited matrix transforms
+ *   and silk-smooth easing `cubic-bezier(0.22, 1, 0.36, 1)`.
  */
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
@@ -43,83 +43,97 @@ export const Button: React.FC<ButtonProps> = ({
   // Directional icon
   const IconComponent = icon || (iconDirection === 'up-right' ? ArrowUpRight : ArrowRight);
 
-  // Variant base styles
+  // Variant styling
   const variantStyles = {
     primary: {
-      container:
-        'bg-primary border border-transparent hover:border-accent/30 shadow-subtle hover:shadow-editorial',
+      outer: 'bg-primary text-primary-foreground border border-black/10 shadow-subtle hover:shadow-editorial',
+      inner: 'bg-primary border border-white/40 group-hover/btn:border-white/90',
       text: 'text-primary-foreground',
     },
     secondary: {
-      container:
-        'bg-surface border border-border hover:border-accent/90 shadow-subtle hover:shadow-editorial',
+      outer: 'bg-surface text-primary border border-border/80 shadow-subtle hover:shadow-editorial',
+      inner: 'bg-surface border border-white group-hover/btn:border-white',
       text: 'text-primary group-hover/btn:text-white',
     },
   }[variant];
 
-  // Sizing scale: [Container padding & text, Action circle size & offset, Icon size]
+  // Sizing configuration
   const sizeConfig = {
     sm: {
-      container: 'pl-5 pr-1.5 py-1.5 text-[12px] sm:text-[13px] gap-4 min-h-[36px] sm:min-h-[38px]',
-      circle: 'w-7 h-7 sm:w-8 sm:h-8',
-      circlePos: 'right-1.5',
-      icon: 'w-3.5 h-3.5 sm:w-4 sm:h-4',
+      outerPadding: 'p-[3px]',
+      innerPadding: 'pl-4 pr-1 py-1 min-h-[34px] sm:min-h-[36px] gap-3.5',
+      circle: 'w-7 h-7',
+      circlePos: 'right-1',
+      icon: 'w-3.5 h-3.5',
+      text: 'text-[11.5px] sm:text-[12px]',
     },
     md: {
-      container: 'pl-7 pr-2 py-2 sm:py-2.5 text-[13px] sm:text-[14px] gap-6 sm:gap-7 min-h-[46px] sm:min-h-[48px]',
-      circle: 'w-8 h-8 sm:w-9 sm:h-9',
-      circlePos: 'right-2',
+      outerPadding: 'p-[3.5px] sm:p-1',
+      innerPadding: 'pl-6 pr-1.5 py-1.5 sm:py-2 min-h-[44px] sm:min-h-[46px] gap-5 sm:gap-6',
+      circle: 'w-8 h-8 sm:w-8.5 sm:h-8.5',
+      circlePos: 'right-1.5',
       icon: 'w-4 h-4',
+      text: 'text-[13px] sm:text-[13.5px]',
     },
     lg: {
-      container: 'pl-8 pr-2.5 py-2.5 sm:py-3 text-[14px] sm:text-[15px] gap-7 sm:gap-8 min-h-[52px] sm:min-h-[54px]',
-      circle: 'w-9 h-9 sm:w-10 sm:h-10',
-      circlePos: 'right-2.5',
-      icon: 'w-4 h-4 sm:w-4.5 sm:h-4.5',
+      outerPadding: 'p-1 sm:p-[5px]',
+      innerPadding: 'pl-7 pr-2 py-2 sm:py-2.5 min-h-[50px] sm:min-h-[52px] gap-6 sm:gap-7',
+      circle: 'w-9 h-9 sm:w-9.5 sm:h-9.5',
+      circlePos: 'right-2',
+      icon: 'w-4.5 h-4.5',
+      text: 'text-[14px] sm:text-[14.5px]',
     },
   }[size];
 
-  // Root container classes with hardware-accelerated transforms and smooth easing
+  // Root container styles - hardware-accelerated transforms only (no layout recalculations)
   const baseClasses = `
-    group/btn relative inline-flex items-center justify-between
-    overflow-hidden rounded-full font-semibold tracking-wider uppercase select-none
-    transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu
+    group/btn relative inline-flex items-center justify-center
+    rounded-full font-semibold tracking-wider uppercase select-none
+    transition-[transform,box-shadow,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu will-change-transform
     hover:scale-[1.015] active:scale-[0.975]
     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background
     disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed
-    ${variantStyles.container}
-    ${sizeConfig.container}
+    ${variantStyles.outer}
+    ${sizeConfig.outerPadding}
     ${className}
   `.replace(/\s+/g, ' ').trim();
 
   const content = (
-    <>
-      {/* Expanding Orange Action Disc: Single continuous physical element */}
+    <div
+      className={`
+        relative w-full h-full flex items-center justify-between
+        rounded-full overflow-hidden
+        ${variantStyles.inner}
+        ${sizeConfig.innerPadding}
+      `}
+    >
+      {/* Expanding Orange Action Disc: Zero-lag hardware-accelerated smooth fill */}
       <span
         aria-hidden="true"
         className={`
           absolute ${sizeConfig.circlePos} top-1/2 -translate-y-1/2
           ${sizeConfig.circle}
           rounded-full bg-accent pointer-events-none z-0
-          transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu
-          group-hover/btn:scale-[18]
+          transition-transform duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu will-change-transform
+          group-hover/btn:scale-[16]
         `}
         style={{ transformOrigin: 'center center' }}
       />
 
-      {/* Button Label: Glides subtly and transitions color smoothly */}
+      {/* Button Label: Glides smoothly and transitions text color with zero layout recalculation */}
       <span
         className={`
-          relative z-10 tracking-[0.06em] whitespace-nowrap
-          transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
+          relative z-10 tracking-[0.06em] whitespace-nowrap font-semibold
+          transition-[transform,color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
           group-hover/btn:translate-x-1
+          ${sizeConfig.text}
           ${variantStyles.text}
         `}
       >
         {children}
       </span>
 
-      {/* Action Area Container & Arrow Icon: Anchored on the right with smooth forward glide */}
+      {/* Action Area Container & Arrow Icon: Anchored with silky glide */}
       <span
         aria-hidden="true"
         className={`
@@ -131,7 +145,7 @@ export const Button: React.FC<ButtonProps> = ({
         <IconComponent
           className={`
             ${sizeConfig.icon}
-            transition-transform duration-450 ease-[cubic-bezier(0.16,1,0.3,1)]
+            transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu will-change-transform
             ${
               iconDirection === 'up-right'
                 ? 'group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1'
@@ -140,7 +154,7 @@ export const Button: React.FC<ButtonProps> = ({
           `}
         />
       </span>
-    </>
+    </div>
   );
 
   // If href is provided, render as semantic anchor link
