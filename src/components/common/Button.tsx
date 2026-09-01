@@ -53,7 +53,7 @@ export const Button: React.FC<ButtonProps> = ({
     secondary: {
       container:
         'bg-surface border border-border hover:border-accent/90 shadow-subtle hover:shadow-editorial',
-      text: 'text-primary group-hover:text-white',
+      text: 'text-primary group-hover/btn:text-white',
     },
   }[variant];
 
@@ -81,7 +81,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   // Root container classes with hardware-accelerated transforms and smooth easing
   const baseClasses = `
-    group relative inline-flex items-center justify-between
+    group/btn relative inline-flex items-center justify-between
     overflow-hidden rounded-full font-semibold tracking-wider uppercase select-none
     transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu
     hover:scale-[1.015] active:scale-[0.975]
@@ -102,7 +102,7 @@ export const Button: React.FC<ButtonProps> = ({
           ${sizeConfig.circle}
           rounded-full bg-accent pointer-events-none z-0
           transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu
-          group-hover:scale-[18]
+          group-hover/btn:scale-[18]
         `}
         style={{ transformOrigin: 'center center' }}
       />
@@ -112,7 +112,7 @@ export const Button: React.FC<ButtonProps> = ({
         className={`
           relative z-10 tracking-[0.06em] whitespace-nowrap
           transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]
-          group-hover:translate-x-1
+          group-hover/btn:translate-x-1
           ${variantStyles.text}
         `}
       >
@@ -134,8 +134,8 @@ export const Button: React.FC<ButtonProps> = ({
             transition-transform duration-450 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${
               iconDirection === 'up-right'
-                ? 'group-hover:translate-x-1 group-hover:-translate-y-1'
-                : 'group-hover:translate-x-1.5'
+                ? 'group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1'
+                : 'group-hover/btn:translate-x-1.5'
             }
           `}
         />

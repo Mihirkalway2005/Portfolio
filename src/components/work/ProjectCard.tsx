@@ -72,7 +72,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.05, margin: "0px 0px -40px 0px" }}
-      className="group relative w-full py-16 sm:py-24 md:py-32 lg:py-40 first:pt-8"
+      className="group/card relative w-full py-16 sm:py-24 md:py-32 lg:py-40 first:pt-8"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-14 lg:gap-16 items-center">
         {/* ========================================================================= */}
@@ -136,7 +136,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         >
           <a
             href={project.href}
-            className="block w-full h-full cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.015]"
+            className="block w-full h-full cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.015]"
             aria-label={`View ${project.title}`}
           >
             <VisualComponent />
