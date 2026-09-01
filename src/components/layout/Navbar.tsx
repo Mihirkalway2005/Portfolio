@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '../common/Button';
 
 export const Navbar: React.FC = () => {
   return (
@@ -43,12 +44,13 @@ export const Navbar: React.FC = () => {
           >
             About
           </a>
-          <a
+          <Button
+            variant="primary"
+            size="sm"
             href="#contact"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary text-primary-foreground text-[12px] font-medium tracking-wide uppercase hover:bg-primary/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             Let's Talk
-          </a>
+          </Button>
         </nav>
       </div>
     </motion.header>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
+import { Button } from '../common/Button';
 
 // Easing curve matching Folioblox premium editorial pacing
 const transitionEase = [0.16, 1, 0.3, 1] as const;
@@ -147,27 +148,23 @@ export const HeroSection: React.FC = () => {
           className="lg:col-span-5 flex flex-wrap items-center gap-4 lg:justify-end"
         >
           {/* Primary CTA */}
-          <a
+          <Button
+            variant="primary"
+            size="md"
             href="#work"
             onClick={handleScrollToWork}
-            className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground text-[13px] md:text-[14px] font-semibold tracking-wide uppercase shadow-sm transition-all duration-300 hover:bg-accent hover:text-white hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span>EXPLORE MY WORK</span>
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1 font-mono text-base">
-              ↘
-            </span>
-          </a>
+            EXPLORE MY WORK
+          </Button>
 
           {/* Secondary CTA */}
-          <a
+          <Button
+            variant="secondary"
+            size="md"
             href="#contact"
-            className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-surface text-primary border border-border text-[13px] md:text-[14px] font-medium tracking-wide uppercase hover:bg-surface-subtle hover:border-accent hover:text-accent transition-all duration-300 active:scale-[0.98]"
           >
-            <span>LET'S CONNECT</span>
-            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 font-mono text-base text-secondary group-hover:text-accent">
-              ↗
-            </span>
-          </a>
+            LET'S CONNECT
+          </Button>
         </motion.div>
       </div>
 
