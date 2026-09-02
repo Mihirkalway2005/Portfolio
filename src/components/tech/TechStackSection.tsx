@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { motion, type Variants, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Button } from '../common/Button';
+import { TechMarquee } from './TechMarquee';
 import {
   JavaScriptIcon,
   TypeScriptIcon,
   PythonIcon,
   SQLIcon,
+  CppIcon,
   ReactIcon,
   NextJSIcon,
   TailwindIcon,
@@ -15,14 +17,18 @@ import {
   FastAPIIcon,
   PostgreSQLIcon,
   MongoDBIcon,
+  RedisIcon,
+  SupabaseIcon,
   OpenAIIcon,
+  PyTorchIcon,
   ComputerVisionIcon,
   NLPIcon,
+  DockerIcon,
   GitIcon,
   GitHubIcon,
   FigmaIcon,
   VercelIcon,
-  RestAPIIcon,
+  GraphQLIcon,
 } from './TechIcons';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
@@ -47,14 +53,14 @@ const techCategories: TechCategory[] = [
   {
     number: '01',
     title: 'LANGUAGES',
-    subtitle: 'Core application logic & typed computation',
+    subtitle: 'Core application logic, systems & typed computation',
     items: [
       {
-        id: 'js',
-        name: 'JavaScript',
-        description: 'Core web runtime, event handling & dynamic logic',
-        projects: 'InterEdge · noCap · Nexus',
-        icon: JavaScriptIcon,
+        id: 'py',
+        name: 'Python',
+        description: 'AI model pipelines, machine intelligence & server scripts',
+        projects: 'LockinAI · noCap · InternEdge',
+        icon: PythonIcon,
       },
       {
         id: 'ts',
@@ -64,17 +70,24 @@ const techCategories: TechCategory[] = [
         icon: TypeScriptIcon,
       },
       {
-        id: 'py',
-        name: 'Python',
-        description: 'AI model pipelines, machine intelligence & services',
-        projects: 'LockinAI · noCap · InterEdge',
-        icon: PythonIcon,
+        id: 'js',
+        name: 'JavaScript',
+        description: 'Core web runtime, DOM dynamics & event handling',
+        projects: 'InternEdge · noCap · Nexus',
+        icon: JavaScriptIcon,
+      },
+      {
+        id: 'cpp',
+        name: 'C++',
+        description: 'Performance-critical systems & algorithmic computation',
+        projects: 'Systems & Algorithms',
+        icon: CppIcon,
       },
       {
         id: 'sql',
         name: 'SQL',
-        description: 'Relational data modeling, queries & migrations',
-        projects: 'Nexus · InterEdge',
+        description: 'Relational data modeling, ACID queries & migrations',
+        projects: 'Nexus · InternEdge',
         icon: SQLIcon,
       },
     ],
@@ -82,13 +95,13 @@ const techCategories: TechCategory[] = [
   {
     number: '02',
     title: 'FRONTEND',
-    subtitle: 'High-craft interfaces & performant client architecture',
+    subtitle: 'High-craft interfaces, animations & client architecture',
     items: [
       {
         id: 'react',
         name: 'React',
         description: 'Component architecture, hooks & reactive interfaces',
-        projects: 'InterEdge · EduNex · LockinAI',
+        projects: 'InternEdge · EduNex · LockinAI',
         icon: ReactIcon,
       },
       {
@@ -107,8 +120,8 @@ const techCategories: TechCategory[] = [
       },
       {
         id: 'html-css',
-        name: 'HTML & CSS',
-        description: 'Semantic DOM standards & modern CSS transitions',
+        name: 'HTML5 & CSS3',
+        description: 'Semantic DOM standards & modern GPU-accelerated motion',
         projects: 'Core Design Systems',
         icon: HTMLCSSIcon,
       },
@@ -120,31 +133,38 @@ const techCategories: TechCategory[] = [
     subtitle: 'High-throughput APIs & asynchronous server runtimes',
     items: [
       {
+        id: 'fastapi',
+        name: 'FastAPI',
+        description: 'High-performance asynchronous Python REST endpoints',
+        projects: 'LockinAI · noCap',
+        icon: FastAPIIcon,
+      },
+      {
         id: 'nodejs',
         name: 'Node.js',
-        description: 'Asynchronous event-driven services & API micro-layers',
-        projects: 'Nexus · InterEdge',
+        description: 'Event-driven serverless functions & microservices',
+        projects: 'Nexus · InternEdge',
         icon: NodeJSIcon,
       },
       {
-        id: 'fastapi',
-        name: 'FastAPI',
-        description: 'High-performance async Python REST endpoints',
-        projects: 'LockinAI · noCap',
-        icon: FastAPIIcon,
+        id: 'graphql',
+        name: 'GraphQL',
+        description: 'Declarative data fetching & strictly typed client queries',
+        projects: 'Nexus Engine',
+        icon: GraphQLIcon,
       },
     ],
   },
   {
     number: '04',
-    title: 'DATABASE',
-    subtitle: 'Structured persistence & distributed data stores',
+    title: 'DATABASE & STORAGE',
+    subtitle: 'Structured persistence, caching & distributed data stores',
     items: [
       {
         id: 'postgres',
         name: 'PostgreSQL',
-        description: 'Relational schemas, foreign keys & ACID compliance',
-        projects: 'Nexus · InterEdge',
+        description: 'Relational schemas, indexing & transactional reliability',
+        projects: 'Nexus · InternEdge',
         icon: PostgreSQLIcon,
       },
       {
@@ -154,19 +174,40 @@ const techCategories: TechCategory[] = [
         projects: 'LockinAI · EduNex',
         icon: MongoDBIcon,
       },
+      {
+        id: 'supabase',
+        name: 'Supabase',
+        description: 'Postgres BaaS with real-time subscriptions & row auth',
+        projects: 'EduNex · Nexus',
+        icon: SupabaseIcon,
+      },
+      {
+        id: 'redis',
+        name: 'Redis',
+        description: 'In-memory caching, pub/sub queues & session state',
+        projects: 'LockinAI Engine',
+        icon: RedisIcon,
+      },
     ],
   },
   {
     number: '05',
-    title: 'AI / ML',
-    subtitle: 'Intelligent systems, vision pipelines & language models',
+    title: 'AI / MACHINE LEARNING',
+    subtitle: 'Intelligent agents, neural networks & multimodal vision',
     items: [
       {
         id: 'openai',
         name: 'OpenAI APIs',
         description: 'LLM reasoning pipelines, function calling & agent loops',
-        projects: 'LockinAI · noCap · InterEdge',
+        projects: 'LockinAI · noCap · InternEdge',
         icon: OpenAIIcon,
+      },
+      {
+        id: 'pytorch',
+        name: 'PyTorch',
+        description: 'Deep learning model training, tensors & inference',
+        projects: 'AI Research Models',
+        icon: PyTorchIcon,
       },
       {
         id: 'vision',
@@ -186,9 +227,16 @@ const techCategories: TechCategory[] = [
   },
   {
     number: '06',
-    title: 'TOOLS & WORKFLOW',
-    subtitle: 'Developer ergonomics, interface design & cloud hosting',
+    title: 'DEVOPS & WORKFLOW',
+    subtitle: 'Developer ergonomics, interface craft & cloud infrastructure',
     items: [
+      {
+        id: 'docker',
+        name: 'Docker',
+        description: 'Containerized reproducible microservices & environments',
+        projects: 'Production Deployments',
+        icon: DockerIcon,
+      },
       {
         id: 'git',
         name: 'Git',
@@ -206,7 +254,7 @@ const techCategories: TechCategory[] = [
       {
         id: 'figma',
         name: 'Figma',
-        description: 'Wireframing, typography exploration & design systems',
+        description: 'Wireframing, design tokens & UI prototyping',
         projects: 'All Interface Designs',
         icon: FigmaIcon,
       },
@@ -216,13 +264,6 @@ const techCategories: TechCategory[] = [
         description: 'Edge network deployment, previews & production CDN',
         projects: 'Cloud Deployments',
         icon: VercelIcon,
-      },
-      {
-        id: 'rest',
-        name: 'REST APIs',
-        description: 'Contract-first endpoint design & system interop',
-        projects: 'Full-Stack Integrations',
-        icon: RestAPIIcon,
       },
     ],
   },
@@ -280,7 +321,7 @@ export const TechStackSection: React.FC = () => {
       transition: {
         duration: 0.85,
         ease: transitionEase,
-        delay: 0.2 + custom * 0.1,
+        delay: 0.15 + custom * 0.08,
       },
     }),
   };
@@ -344,17 +385,29 @@ export const TechStackSection: React.FC = () => {
             className="lg:col-span-5 flex flex-col justify-between space-y-6 lg:pb-3"
           >
             <p className="text-[17px] sm:text-[19px] md:text-[21px] text-secondary leading-relaxed font-normal tracking-tight max-w-[520px]">
-              The technologies I use across product development, AI, interfaces and systems.
+              The core technologies and frameworks I use across product development, machine intelligence, interfaces, and distributed systems.
             </p>
 
             <div className="flex items-center justify-between pt-2 border-t border-border/50 text-[11px] font-mono uppercase text-secondary tracking-widest">
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                <span>06 CHAPTERS // 20 TECHNOLOGIES</span>
+                <span>06 CHAPTERS // 25+ TECHNOLOGIES</span>
               </span>
               <span>2024 — 2026</span>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* ========================================================================= */}
+        {/* VIDEO-STYLE CONTINUOUS TECH MARQUEE BANNER                                */}
+        {/* ========================================================================= */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={supportingVariants}
+        >
+          <TechMarquee />
         </motion.div>
 
         {/* ========================================================================= */}

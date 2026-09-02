@@ -234,12 +234,12 @@ export const ProjectVisualCanvas: React.FC<ProjectVisualCanvasProps> = ({ config
 };
 
 /* ========================================================================= */
-/* 01 — INTEREDGE VISUAL                                                     */
+/* 01 — INTERNEDGE VISUAL                                                    */
 /* ========================================================================= */
-export const InterEdgeVisual: React.FC = () => {
+export const InternEdgeVisual: React.FC = () => {
   const config: ProjectVisualConfig = {
-    id: 'interedge',
-    title: 'INTEREDGE',
+    id: 'internedge',
+    title: 'INTERNEDGE',
     category: 'AI · PRODUCT · FULL STACK',
     description:
       'An AI-powered internship discovery platform designed to help students discover relevant opportunities faster.',
@@ -261,6 +261,8 @@ export const InterEdgeVisual: React.FC = () => {
 
   return <ProjectVisualCanvas config={config} />;
 };
+
+export const InterEdgeVisual = InternEdgeVisual;
 
 /* ========================================================================= */
 /* 02 — EDUNEX VISUAL                                                        */

@@ -4,6 +4,7 @@ import { HeroSection } from './components/hero/HeroSection';
 import { IntroSection } from './components/intro/IntroSection';
 import { SelectedWorkSection } from './components/work/SelectedWorkSection';
 import { TechStackSection } from './components/tech/TechStackSection';
+import { ExperienceSection } from './components/experience/ExperienceSection';
 import { CustomCursor } from './components/common/CustomCursor';
 
 export const App: React.FC = () => {
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
         <IntroSection />
         <SelectedWorkSection />
         <TechStackSection />
+        <ExperienceSection />
       </main>
     </div>
   );

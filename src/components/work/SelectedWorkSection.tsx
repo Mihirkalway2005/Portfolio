@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { ProjectCard, type ProjectData } from './ProjectCard';
 import {
-  InterEdgeVisual,
+  InternEdgeVisual,
   EduNexVisual,
   NexusVisual,
   LockinAIVisual,
@@ -19,14 +19,14 @@ const transitionEase = [0.16, 1, 0.3, 1] as const;
 const projects: ProjectData[] = [
   {
     number: '01',
-    id: 'interedge',
-    title: 'InterEdge',
+    id: 'internedge',
+    title: 'InternEdge',
     category: 'AI · PRODUCT · FULL STACK',
     description:
       'An AI-powered internship discovery platform designed to help students discover relevant opportunities faster.',
-    href: '#interedge',
+    href: '#internedge',
     logo: internEdgeLogo,
-    visualComponent: InterEdgeVisual,
+    visualComponent: InternEdgeVisual,
   },
   {
     number: '02',
@@ -106,7 +106,7 @@ export const SelectedWorkSection: React.FC = () => {
   return (
     <section
       id="work"
-      aria-label="Selected Work"
+      aria-label="Projects"
       className="relative w-full border-t border-border/80 bg-background py-24 sm:py-32 md:py-44 select-none"
     >
       <div className="max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 space-y-16 sm:space-y-20 md:space-y-28">
@@ -119,16 +119,16 @@ export const SelectedWorkSection: React.FC = () => {
           viewport={{ once: true, amount: 0.05, margin: "0px 0px -40px 0px" }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end pb-8 sm:pb-12 border-b border-border/60"
         >
-          {/* Left Column: Label + Huge Stacked Title (7 cols) */}
+          {/* Left Column: Label + Huge Title (7 cols) */}
           <div className="lg:col-span-7 space-y-5 md:space-y-7">
-            {/* Editorial Label: 03 / SELECTED WORK */}
+            {/* Editorial Label: 03 / PROJECTS */}
             <motion.div
               variants={supportingVariants}
               className="flex items-center gap-2.5"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-subtle" />
               <span className="text-[12px] md:text-[13px] font-mono font-semibold tracking-[0.2em] uppercase text-accent">
-                03 / SELECTED WORK
+                03 / PROJECTS
               </span>
             </motion.div>
 
@@ -140,17 +140,7 @@ export const SelectedWorkSection: React.FC = () => {
                   variants={headlineLineVariants}
                   className="text-[44px] sm:text-[62px] md:text-[80px] lg:text-[96px] xl:text-[108px] font-black text-primary tracking-tighter leading-[0.9] uppercase"
                 >
-                  SELECTED
-                </motion.h2>
-              </div>
-
-              <div className="text-mask-wrapper">
-                <motion.h2
-                  custom={1}
-                  variants={headlineLineVariants}
-                  className="text-[44px] sm:text-[62px] md:text-[80px] lg:text-[96px] xl:text-[108px] font-black text-primary tracking-tighter leading-[0.9] uppercase"
-                >
-                  WORK<span className="text-accent">.</span>
+                  PROJECTS<span className="text-accent">.</span>
                 </motion.h2>
               </div>
             </div>

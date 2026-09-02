@@ -7,10 +7,10 @@ export interface TechIconProps {
 // 01. JavaScript
 export const JavaScriptIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <rect width="24" height="24" rx="4" fill="#F7DF1E" />
+    <rect width="24" height="24" rx="4.5" fill="#F7DF1E" />
     <path
-      d="M7 16.5C7.5 17.5 8.5 18 9.8 18C11.5 18 12.3 17 12.3 15.5V11H10.5V15.5C10.5 16.2 10.1 16.5 9.6 16.5C9.1 16.5 8.8 16.2 8.6 15.6L7 16.5ZM13.8 16.8C14.3 17.6 15.2 18 16.5 18C18.2 18 19.3 17.1 19.3 15.5C19.3 14 18.4 13.3 17 12.7L16.4 12.4C15.5 12 15 11.6 15 10.9C15 10.3 15.5 9.8 16.4 9.8C17.1 9.8 17.6 10.1 18 10.8L19.4 9.9C18.8 8.8 17.7 8.3 16.4 8.3C14.7 8.3 13.5 9.3 13.5 10.9C13.5 12.3 14.3 13 15.8 13.6L16.4 13.9C17.4 14.3 17.9 14.8 17.9 15.5C17.9 16.2 17.2 16.7 16.4 16.7C15.4 16.7 14.7 16.2 14.2 15.3L13.8 16.8Z"
-      fill="#111111"
+      d="M7.5 16.8c.5.9 1.4 1.4 2.7 1.4 1.6 0 2.5-.9 2.5-2.4v-4.8H10.8v4.8c0 .7-.4 1-.9 1-.4 0-.8-.3-1-.9l-1.4.9zm6.4.3c.5.8 1.4 1.1 2.5 1.1 1.6 0 2.7-.9 2.7-2.4 0-1.4-.9-2.1-2.3-2.6l-.5-.2c-.9-.3-1.4-.8-1.4-1.4 0-.7.6-1.2 1.4-1.2.8 0 1.3.4 1.7.9l1.4-1c-.7-1-1.8-1.5-3.1-1.5-1.8 0-3 1-3 2.5 0 1.3.9 2.1 2.3 2.6l.5.2c1 .4 1.5.8 1.5 1.5 0 .8-.7 1.3-1.6 1.3-1 0-1.7-.5-2.1-1.3l-1.5 1.3z"
+      fill="#000000"
     />
   </svg>
 );
@@ -18,23 +18,25 @@ export const JavaScriptIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' 
 // 02. TypeScript
 export const TypeScriptIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <rect width="24" height="24" rx="4" fill="#3178C6" />
+    <rect width="24" height="24" rx="4.5" fill="#3178C6" />
     <path
-      d="M6 10H12.5V11.8H9.9V18H8.5V11.8H6V10ZM13.6 16.9C14.1 17.6 15 18 16.2 18C17.9 18 19 17.1 19 15.5C19 14 18.1 13.3 16.7 12.7L16.1 12.4C15.2 12 14.7 11.6 14.7 10.9C14.7 10.3 15.2 9.8 16.1 9.8C16.8 9.8 17.3 10.1 17.7 10.8L19.1 9.9C18.5 8.8 17.4 8.3 16.1 8.3C14.4 8.3 13.2 9.3 13.2 10.9C13.2 12.3 14 13 15.5 13.6L16.1 13.9C17.1 14.3 17.6 14.8 17.6 15.5C17.6 16.2 16.9 16.7 16.1 16.7C15.1 16.7 14.4 16.2 13.9 15.3L13.6 16.9Z"
+      d="M6.2 10.4h6.5v1.8h-2.3v6.6H8.5v-6.6H6.2v-1.8zm7.5 7c.4.7 1.2 1.1 2.3 1.1 1.6 0 2.5-.9 2.5-2.3 0-1.4-.9-2-2.3-2.5l-.5-.2c-1-.4-1.5-.8-1.5-1.4 0-.7.6-1.2 1.5-1.2.8 0 1.3.4 1.7 1l1.4-1.1c-.7-1-1.8-1.5-3.1-1.5-1.8 0-3.1 1-3.1 2.6 0 1.4.9 2.1 2.4 2.6l.5.2c1 .4 1.5.8 1.5 1.5 0 .8-.7 1.3-1.6 1.3-1 0-1.7-.5-2.1-1.3l-1.3 1.1z"
       fill="#FFFFFF"
     />
   </svg>
 );
 
-// 03. Python
+// 03. Python (Authentic Official Interlocking Two-Tone Snakes)
 export const PythonIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
+    {/* Blue Top Snake */}
     <path
-      d="M11.87 2C7.38 2 7.66 3.94 7.66 3.94L7.67 5.96H12.2V6.6H5.4C2.37 6.6 2 9.07 2 11.95C2 15.26 4.63 15.06 4.63 15.06H6.18V12.87C6.18 9.77 8.85 9.82 8.85 9.82H13.43C14.83 9.82 15.7 8.7 15.7 7.33V3.62C15.7 2.37 14.48 2 11.87 2ZM9.43 3.65C9.9 3.65 10.28 4.03 10.28 4.5C10.28 4.97 9.9 5.35 9.43 5.35C8.96 5.35 8.58 4.97 8.58 4.5C8.58 4.03 8.96 3.65 9.43 3.65Z"
+      d="M11.922 2c-5.064 0-4.739 2.195-4.739 2.195l.006 2.274h4.82v.684H5.21S2 6.786 2 11.916c0 5.129 2.793 4.966 2.793 4.966h1.666v-2.327s-.09-2.794 2.748-2.794h4.708s2.613.042 2.613-2.528V5.378S16.945 2 11.922 2zm-2.61 1.637a1.053 1.053 0 1 1 0 2.106 1.053 1.053 0 0 1 0-2.106z"
       fill="#3776AB"
     />
+    {/* Yellow Bottom Snake */}
     <path
-      d="M12.13 22C16.62 22 16.34 20.06 16.34 20.06L16.33 18.04H11.8V17.4H18.6C21.63 17.4 22 14.93 22 12.05C22 8.74 19.37 8.94 19.37 8.94H17.82V11.13C17.82 14.23 15.15 14.18 15.15 14.18H10.57C9.17 14.18 8.3 15.3 8.3 16.67V20.38C8.3 21.63 9.52 22 12.13 22ZM14.57 20.35C14.1 20.35 13.72 19.97 13.72 19.5C13.72 19.03 14.1 18.65 14.57 18.65C15.04 18.65 15.42 19.03 15.42 19.5C15.42 19.97 15.04 20.35 14.57 20.35Z"
+      d="M12.078 22c5.064 0 4.739-2.195 4.739-2.195l-.006-2.274h-4.82v-.684h6.799S22 17.214 22 12.084c0-5.129-2.793-4.966-2.793-4.966h-1.666v2.327s.09 2.794-2.748 2.794h-4.708s-2.613-.042-2.613 2.528v3.863S7.055 22 12.078 22zm2.61-1.637a1.053 1.053 0 1 1 0-2.106 1.053 1.053 0 0 1 0 2.106z"
       fill="#FFD43B"
     />
   </svg>
@@ -42,22 +44,20 @@ export const PythonIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =
 
 // 04. SQL
 export const SQLIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-    <ellipse cx="12" cy="5" rx="9" ry="3" fill="#E2E8F0" fillOpacity="0.3" />
-    <path d="M21 12C21 13.66 16.97 15 12 15C7.03 15 3 13.66 3 12" />
-    <path d="M3 5V19C3 20.66 7.03 22 12 22C16.97 22 21 20.66 21 19V5" />
-    <path d="M3 12V19" />
-    <path d="M21 12V19" />
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <ellipse cx="12" cy="5.5" rx="8" ry="2.8" fill="#336791" fillOpacity="0.2" stroke="#336791" strokeWidth="1.8" />
+    <path d="M4 5.5v13C4 20 7.6 21.5 12 21.5s8-1.5 8-3v-13" stroke="#336791" strokeWidth="1.8" />
+    <path d="M4 12c0 1.5 3.6 3 8 3s8-1.5 8-3" stroke="#336791" strokeWidth="1.6" />
   </svg>
 );
 
-// 05. React
+// 05. React (Authentic Atom & Orbitals)
 export const ReactIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="#087EA4" strokeWidth="1.6" />
-    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="#087EA4" strokeWidth="1.6" transform="rotate(60 12 12)" />
-    <ellipse cx="12" cy="12" rx="10" ry="4.2" stroke="#087EA4" strokeWidth="1.6" transform="rotate(120 12 12)" />
-    <circle cx="12" cy="12" r="1.8" fill="#087EA4" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#087EA4" strokeWidth="1.6" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#087EA4" strokeWidth="1.6" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#087EA4" strokeWidth="1.6" transform="rotate(120 12 12)" />
+    <circle cx="12" cy="12" r="2" fill="#087EA4" />
   </svg>
 );
 
@@ -66,20 +66,20 @@ export const NextJSIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <circle cx="12" cy="12" r="11" fill="#000000" />
     <path
-      d="M15.5 7.5V16.5M8.5 7.5V16.5"
+      d="M15.8 7.5v9M8.2 7.5v9"
       stroke="#FFFFFF"
       strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M8.5 7.5L15.8 17"
-      stroke="url(#nextjs_grad)"
+      d="M8.2 7.5L16.2 17.5"
+      stroke="url(#nextjs_grad_auth)"
       strokeWidth="1.8"
       strokeLinecap="round"
     />
     <defs>
-      <linearGradient id="nextjs_grad" x1="8.5" y1="7.5" x2="16" y2="17" gradientUnits="userSpaceOnUse">
+      <linearGradient id="nextjs_grad_auth" x1="8.2" y1="7.5" x2="16.2" y2="17.5" gradientUnits="userSpaceOnUse">
         <stop stopColor="#FFFFFF" />
         <stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
       </linearGradient>
@@ -97,12 +97,12 @@ export const TailwindIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' })
   </svg>
 );
 
-// 08. HTML & CSS
+// 08. HTML5 & CSS3
 export const HTMLCSSIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <path d="M4 2L5.8 20L12 22L18.2 20L20 2H4Z" fill="#E44D26" fillOpacity="0.1" />
     <path d="M4 2L5.8 20L12 22L18.2 20L20 2H4Z" stroke="#E44D26" strokeWidth="1.6" strokeLinejoin="round" />
-    <path d="M12 4.5V19.5L16.6 18.2L18 4.5H12Z" fill="#E44D26" fillOpacity="0.2" />
+    <path d="M12 4.5V19.5L16.6 18.2L18 4.5H12Z" fill="#E44D26" fillOpacity="0.25" />
     <path d="M7.5 7.5H16.5L16 11.5H8L8.3 14.5L12 15.5L15.7 14.5L15.9 13" stroke="#E44D26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -113,19 +113,17 @@ export const NodeJSIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =
     <path
       d="M12 2L21 7.2V16.8L12 22L3 16.8V7.2L12 2Z"
       fill="#5FA04E"
-      fillOpacity="0.15"
-    />
-    <path
-      d="M12 2L21 7.2V16.8L12 22L3 16.8V7.2L12 2Z"
+      fillOpacity="0.18"
       stroke="#5FA04E"
       strokeWidth="1.8"
       strokeLinejoin="round"
     />
     <path
-      d="M12 7V17M12 12L17 9.5M12 12L7 9.5M12 17L17 14.5M12 17L7 14.5"
+      d="M9 16.5V9.5L15 13.5V16.5"
       stroke="#5FA04E"
-      strokeWidth="1.4"
+      strokeWidth="1.8"
       strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -133,93 +131,127 @@ export const NodeJSIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =
 // 10. FastAPI
 export const FastAPIIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <circle cx="12" cy="12" r="10" fill="#059669" fillOpacity="0.15" stroke="#059669" strokeWidth="1.6" />
+    <circle cx="12" cy="12" r="10.5" fill="#059669" />
     <path
-      d="M12.5 4.5L6.5 13H11.5L10.5 19.5L17.5 10.5H12.5L12.5 4.5Z"
-      fill="#059669"
-      stroke="#059669"
-      strokeWidth="0.8"
-      strokeLinejoin="round"
+      d="M13 4.5L6.5 13.2h5l-1.3 6.3 6.3-8.7h-5l1.5-6.3z"
+      fill="#FFFFFF"
     />
   </svg>
 );
 
-// 11. PostgreSQL
+// 11. PostgreSQL (Authentic Elephant Emblem)
 export const PostgreSQLIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <path
-      d="M12 2C7.5 2 4.5 4.8 4 8.5C3.5 12 5.5 15.5 8 18C10 20 12.5 21.5 15 21.5C17.5 21.5 19.5 19.5 20 17C20.5 14.5 20 11.5 18 9C16.5 7 14.5 6.5 13 6.5"
+      d="M12 2.2c-4.6 0-7.8 2.8-8.3 6.6-.5 3.6 1.6 7.2 4.2 9.7 2.1 2 4.7 3.5 7.3 3.5 2.6 0 4.7-2 5.2-4.6.5-2.6 0-5.6-2-8.2-1.6-2-3.7-2.6-5.3-2.6"
       stroke="#336791"
       strokeWidth="1.8"
       strokeLinecap="round"
     />
     <path
-      d="M8.5 11C8.5 9 10 7.5 12 7.5C14 7.5 15.5 9 15.5 11V15C15.5 16.5 14 17.5 12 17.5C10 17.5 8.5 16.5 8.5 15V11Z"
+      d="M8.2 11.5c0-2 1.6-3.6 3.6-3.6s3.6 1.6 3.6 3.6v4c0 1.6-1.6 2.6-3.6 2.6s-3.6-1-3.6-2.6v-4z"
       fill="#336791"
-      fillOpacity="0.2"
+      fillOpacity="0.25"
       stroke="#336791"
       strokeWidth="1.4"
     />
-    <circle cx="10.5" cy="11.5" r="1" fill="#336791" />
+    <circle cx="10.5" cy="11.8" r="1" fill="#336791" />
   </svg>
 );
 
-// 12. MongoDB
+// 12. MongoDB (Authentic Green Leaf)
 export const MongoDBIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <path
-      d="M12 2C12 2 6.5 8 6.5 13.5C6.5 17 9 20.5 11.5 21.8V22H12.5V21.8C15 20.5 17.5 17 17.5 13.5C17.5 8 12 2 12 2Z"
+      d="M12 2C12 2 6.5 7.5 6.5 13.5c0 3.8 2.8 7.3 5.5 8.5 2.7-1.2 5.5-4.7 5.5-8.5C17.5 7.5 12 2 12 2z"
       fill="#00ED64"
-      fillOpacity="0.15"
+      fillOpacity="0.2"
       stroke="#00684A"
       strokeWidth="1.6"
       strokeLinejoin="round"
     />
     <path
-      d="M12 2.5V21.5"
+      d="M12 2.5v19"
       stroke="#00684A"
-      strokeWidth="1.4"
+      strokeWidth="1.5"
       strokeLinecap="round"
     />
   </svg>
 );
 
-// 13. OpenAI APIs
+// 13. OpenAI APIs (Authentic Rosette / Spiral)
 export const OpenAIIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className={className}>
-    <path d="M12 2.5C10.3 2.5 8.8 3.5 8.2 5L7 7.5L5 8.5C3.3 9.4 2.5 11.2 2.8 13C3.1 14.8 4.4 16.2 6.2 16.5L8.5 17V19.5C8.5 21.4 10.1 23 12 23C13.7 23 15.2 22 15.8 20.5L17 18L19 17C20.7 16.1 21.5 14.3 21.2 12.5C20.9 10.7 19.6 9.3 17.8 9L15.5 8.5V6C15.5 4.1 13.9 2.5 12 2.5Z" />
-    <path d="M12 8.5V15.5M8.5 10L14.5 14M8.5 14L14.5 10" strokeLinecap="round" />
+    <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073z" />
+    <path d="M13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494z" />
+    <path d="M12 9v6M9.5 10.5l5 3M9.5 13.5l5-3" strokeLinecap="round" />
   </svg>
 );
 
-// 14. Computer Vision
+// 14. PyTorch
+export const PyTorchIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M13.2 2.3a1 1 0 0 0-1.4.3l-1.3 2.2a6.8 6.8 0 1 0 4.8 11.7l1.5 1.5A8.9 8.9 0 1 1 12 3a8.8 8.8 0 0 1 4.5 1.2l-1.6 2.7a5.7 5.7 0 0 0-1.7-.6z"
+      fill="#EE4C2C"
+    />
+    <circle cx="16.5" cy="5.5" r="1.5" fill="#EE4C2C" />
+  </svg>
+);
+
+// 15. Docker
+export const DockerIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M13.9 8.4h2.1v2.1h-2.1V8.4zm-3 0h2.1v2.1h-2.1V8.4zm-3 0H10v2.1H7.9V8.4zm6-3h2.1v2.1h-2.1V5.4zm-3 0h2.1v2.1h-2.1V5.4zm-3 0H10v2.1H7.9V5.4zm-3 3H7v2.1H4.9V8.4zm18.3 4.2c-.3-.2-1.4-.4-2.5.3-.2.1-.3.3-.4.4-.8-.5-1.9-.7-3.1-.7H1.3c-.5 0-.9.3-1.1.7-.4 1.7-.1 5.3 3.3 7.8 2.6 1.9 6.2 1.9 8.8 1.9 5.3 0 9.7-2.9 11.2-8.3.6 0 1.2-.4 1.5-.9.2-.5 0-.8-.2-.9z"
+      fill="#2496ED"
+    />
+  </svg>
+);
+
+// 16. Computer Vision / OpenCV
 export const ComputerVisionIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-    <path d="M2 12C3.8 7.5 7.5 4.5 12 4.5C16.5 4.5 20.2 7.5 22 12C20.2 16.5 16.5 19.5 12 19.5C7.5 19.5 3.8 16.5 2 12Z" />
-    <circle cx="12" cy="12" r="3.5" fill="#FF5A00" fillOpacity="0.18" stroke="#FF5A00" strokeWidth="1.8" />
-    <path d="M12 9V8M12 16V15M9 12H8M16 12H15" strokeLinecap="round" strokeWidth="1.5" />
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <circle cx="12" cy="7.5" r="4.2" stroke="#FF5A00" strokeWidth="1.8" />
+    <circle cx="7" cy="16.2" r="4.2" stroke="#00D26A" strokeWidth="1.8" />
+    <circle cx="17" cy="16.2" r="4.2" stroke="#0088FF" strokeWidth="1.8" />
+    <circle cx="12" cy="7.5" r="1.5" fill="#FF5A00" />
+    <circle cx="7" cy="16.2" r="1.5" fill="#00D26A" />
+    <circle cx="17" cy="16.2" r="1.5" fill="#0088FF" />
   </svg>
 );
 
-// 15. NLP & LLM Integration
+// 17. NLP & LLM Integration
 export const NLPIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-    <path d="M21 11.5C21 16.1944 16.9706 20 12 20C10.3 20 8.7 19.5 7.4 18.7L3 20L4.3 15.9C3.5 14.6 3 13.1 3 11.5C3 6.80558 7.02944 3 12 3C16.9706 3 21 6.80558 21 11.5Z" />
-    <path d="M8 11.5H8.01M12 11.5H12.01M16 11.5H16.01" strokeWidth="2.5" strokeLinecap="round" />
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z"
+      fill="#FF5A00"
+      fillOpacity="0.18"
+      stroke="#FF5A00"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M18.5 15.5L19.4 18.6L22.5 19.5L19.4 20.4L18.5 23.5L17.6 20.4L14.5 19.5L17.6 18.6L18.5 15.5Z"
+      fill="#3178C6"
+      stroke="#3178C6"
+      strokeWidth="1"
+    />
   </svg>
 );
 
-// 16. Git
+// 18. Git
 export const GitIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <path
-      d="M21.7 10.9L13.1 2.3C12.7 1.9 12 1.9 11.6 2.3L9.5 4.4L12.2 7.1C12.9 6.8 13.7 7 14.2 7.5C14.7 8 14.9 8.8 14.6 9.5L17.2 12.1C17.9 11.8 18.7 12 19.2 12.5C19.8 13.1 19.8 14.1 19.2 14.7C18.6 15.3 17.6 15.3 17 14.7C16.5 14.2 16.3 13.4 16.6 12.7L14.1 10.2V16.3C14.3 16.5 14.4 16.8 14.4 17.1C14.4 18 13.7 18.7 12.8 18.7C11.9 18.7 11.2 18 11.2 17.1C11.2 16.4 11.6 15.8 12.2 15.6V9.8C11.6 9.6 11.2 9 11.2 8.3C11.2 8 11.3 7.7 11.5 7.4L8.8 4.7L2.3 11.2C1.9 11.6 1.9 12.3 2.3 12.7L10.9 21.3C11.3 21.7 12 21.7 12.4 21.3L21.7 12C22.1 11.7 22.1 11.3 21.7 10.9Z"
+      d="M21.7 10.9L13.1 2.3c-.4-.4-1.1-.4-1.5 0L9.5 4.4l2.7 2.7c.7-.3 1.5-.1 2 .4.5.5.7 1.3.4 2l2.6 2.6c.7-.3 1.5-.1 2 .4.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.5-.5-.7-1.3-.4-2l-2.5-2.5v6.1c.2.2.3.5.3.8 0 .9-.7 1.6-1.6 1.6s-1.6-.7-1.6-1.6c0-.7.4-1.3 1-1.5V9.8c-.6-.2-1-.8-1-1.5 0-.3.1-.6.3-.9L8.8 4.7 2.3 11.2c-.4.4-.4 1.1 0 1.5l8.6 8.6c.4.4 1.1.4 1.5 0l9.3-9.3c.4-.4.4-1.1 0-1.5z"
       fill="#F05032"
     />
   </svg>
 );
 
-// 17. GitHub
+// 19. GitHub
 export const GitHubIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path
@@ -230,7 +262,7 @@ export const GitHubIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =
   </svg>
 );
 
-// 18. Figma
+// 20. Figma
 export const FigmaIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
     <path d="M7 2H12V8H7C5.34 8 4 6.66 4 5C4 3.34 5.34 2 7 2Z" fill="#F24E1E" />
@@ -241,21 +273,61 @@ export const FigmaIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) =>
   </svg>
 );
 
-// 19. Vercel
+// 21. Vercel
 export const VercelIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 2L23 21H1L12 2Z" />
   </svg>
 );
 
-// 20. REST APIs
+// 22. Supabase
+export const SupabaseIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M12.8 2.2c-.4-.5-1.2-.2-1.3.4l-2.6 10.5h6.6c.7 0 1 .8.5 1.2L7.5 22.4c-.4.4-1.1.1-1.1-.5l2.4-9.8H3.3c-.6 0-1-.7-.6-1.2L11.5 2.3c.4-.4 1-.4 1.3-.1z"
+      fill="#3ECF8E"
+    />
+  </svg>
+);
+
+// 23. Redis
+export const RedisIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path d="M2.5 15.5l9.5 5.5 9.5-5.5-3-2-6.5 3.5-6.5-3.5-3 2z" fill="#A81F17" />
+    <path d="M2.5 12l9.5 5.5 9.5-5.5-3-2-6.5 3.5-6.5-3.5-3 2z" fill="#D82C20" />
+    <path d="M12 3L2.5 8.5l9.5 5.5 9.5-5.5L12 3z" fill="#E64436" />
+    <path d="M8.5 7.5l3.5 2 3.5-2-3.5-2-3.5 2z" fill="#FFFFFF" />
+  </svg>
+);
+
+// 24. GraphQL
+export const GraphQLIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z" stroke="#E10098" strokeWidth="1.5" strokeLinejoin="round" />
+    <path d="M12 5.5L18 9v6l-6 3.5L6 15V9l6-3.5z" stroke="#E10098" strokeWidth="1.5" strokeLinejoin="round" />
+    <circle cx="12" cy="2" r="1.5" fill="#E10098" />
+    <circle cx="20.66" cy="7" r="1.5" fill="#E10098" />
+    <circle cx="20.66" cy="17" r="1.5" fill="#E10098" />
+    <circle cx="12" cy="22" r="1.5" fill="#E10098" />
+    <circle cx="3.34" cy="17" r="1.5" fill="#E10098" />
+    <circle cx="3.34" cy="7" r="1.5" fill="#E10098" />
+  </svg>
+);
+
+// 25. C++
+export const CppIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z" fill="#00599C" fillOpacity="0.15" stroke="#00599C" strokeWidth="1.6" />
+    <path d="M9.5 9.5a3.5 3.5 0 1 0 0 5M13.5 12h2M14.5 11v2M17.5 12h2M18.5 11v2" stroke="#00599C" strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+);
+
+// 26. REST APIs
 export const RestAPIIcon: React.FC<TechIconProps> = ({ className = 'w-5 h-5' }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-    <rect x="2" y="5" width="8" height="6" rx="2" stroke="currentColor" />
-    <rect x="14" y="13" width="8" height="6" rx="2" stroke="currentColor" />
-    <path d="M10 8H14C15.1 8 16 8.9 16 10V13" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M14 16H10C8.9 16 8 15.1 8 14V11" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="14" cy="8" r="1" fill="#FF5A00" stroke="#FF5A00" />
-    <circle cx="10" cy="16" r="1" fill="#FF5A00" stroke="#FF5A00" />
+    <rect x="2" y="5" width="7" height="5" rx="2" stroke="currentColor" />
+    <rect x="15" y="14" width="7" height="5" rx="2" stroke="currentColor" />
+    <path d="M9 7.5h3.5a2.5 2.5 0 0 1 2.5 2.5v4" strokeLinecap="round" />
+    <path d="M15 16.5h-3.5a2.5 2.5 0 0 1-2.5-2.5v-4" strokeLinecap="round" />
   </svg>
 );
