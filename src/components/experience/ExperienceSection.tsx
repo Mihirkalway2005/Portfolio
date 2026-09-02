@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import { motion, type Variants, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import {
-  IscbVisual,
-  JapanCenterVisual,
-  CotdVisual,
-  ECellVisual,
-} from './ExperienceVisuals';
+import { motion, AnimatePresence, type Variants, useReducedMotion } from 'framer-motion';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
+
+import iscbLogo from '../../public/ISCB-2.png';
+import wjcLogo from '../../public/WJC2.png';
+import cotdLogo from '../../public/COTD-2.png';
+import ecellLogo from '../../public/ECELL-2.png';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
 
-export interface ExperienceItem {
+export interface ExperienceData {
   number: string;
   id: string;
   title: string;
-  subtitle?: string;
+  subtitle: string;
   role: string;
   period: string;
   category: string;
+  tag: string;
   quote?: string;
   description: string;
   pillars: string[];
-  visualComponent: React.FC<{ isActive?: boolean }>;
+  logo: string;
+  alt: string;
+  backgroundGradient: string;
+  glowGradient: string;
+  accentColor: string;
+  logoClassName?: string;
 }
 
-const experiences: ExperienceItem[] = [
+const experiences: ExperienceData[] = [
   {
     number: '01',
     id: 'iscb',
@@ -33,6 +38,7 @@ const experiences: ExperienceItem[] = [
     role: 'Startup Consulting & Global Collaboration',
     period: '2024 — Present',
     category: 'Global Strategy & Consulting',
+    tag: 'GLOBAL STRATEGY',
     quote: '“I work at the intersection of startups, students and opportunity.”',
     description:
       'I collaborate with startups across different parts of the world, understand their challenges, contribute to their initiatives, and connect them with students who can create real-world value.',
@@ -42,20 +48,36 @@ const experiences: ExperienceItem[] = [
       'Student Opportunities',
       'Cross-Functional Work',
     ],
-    visualComponent: IscbVisual,
+    logo: iscbLogo,
+    alt: 'ISCB — International Strategy Consulting Board logo',
+    backgroundGradient:
+      'radial-gradient(ellipse at 65% 30%, rgba(255, 90, 0, 0.16) 0%, rgba(139, 26, 68, 0.22) 40%, #09080E 85%)',
+    glowGradient:
+      'radial-gradient(circle, rgba(255, 90, 0, 0.35) 0%, rgba(180, 30, 80, 0.2) 60%, transparent 80%)',
+    accentColor: '#FF5A00',
+    logoClassName: 'filter drop-shadow-[0_16px_32px_rgba(255,90,0,0.22)] brightness-[1.1] contrast-[1.04]',
   },
   {
     number: '02',
     id: 'japan-center',
     title: 'Woxsen Japan Centre',
-    subtitle: 'Academic & Cultural Exchange',
+    subtitle: 'Woxsen Japan Centre',
     role: 'Student Coordination · Cross-Cultural Engagement',
     period: '2024 — Present',
     category: 'Global & Academic Initiatives',
+    tag: 'CULTURAL EXCHANGE',
+    quote: '“Facilitating cross-cultural student coordination & global initiatives.”',
     description:
       'Facilitating cross-cultural student engagement, coordinating academic and cultural initiatives, and fostering collaborative international connections.',
     pillars: ['Cross-Cultural Programs', 'Student Coordination', 'Global Outlook'],
-    visualComponent: JapanCenterVisual,
+    logo: wjcLogo,
+    alt: 'Woxsen Japan Centre logo',
+    backgroundGradient:
+      'radial-gradient(ellipse at 50% 35%, rgba(255, 90, 0, 0.08) 0%, rgba(22, 24, 34, 0.5) 50%, #07070B 88%)',
+    glowGradient:
+      'radial-gradient(circle, rgba(255, 90, 0, 0.18) 0%, rgba(30, 32, 45, 0.12) 50%, transparent 75%)',
+    accentColor: '#FF5A00',
+    logoClassName: 'filter drop-shadow-[0_16px_28px_rgba(0,0,0,0.5)] brightness-[1.02]',
   },
   {
     number: '03',
@@ -65,6 +87,7 @@ const experiences: ExperienceItem[] = [
     role: 'L&D Ambassador',
     period: '2024 — Present',
     category: 'Talent Development & Career Readiness',
+    tag: 'TALENT DEVELOPMENT',
     quote: '“Helping students become more career-ready.”',
     description:
       'As an L&D Ambassador, I work with peers to make learning more engaging and help students become better prepared for placements, internships and professional opportunities.',
@@ -75,25 +98,41 @@ const experiences: ExperienceItem[] = [
       'Soft Skills',
       'Learning & Development',
     ],
-    visualComponent: CotdVisual,
+    logo: cotdLogo,
+    alt: 'Centre of Talent Development — Woxsen University logo',
+    backgroundGradient:
+      'radial-gradient(ellipse at 50% 35%, rgba(245, 158, 11, 0.2) 0%, rgba(23, 37, 84, 0.4) 45%, #050814 85%)',
+    glowGradient:
+      'radial-gradient(circle, rgba(245, 158, 11, 0.32) 0%, rgba(30, 58, 138, 0.25) 60%, transparent 80%)',
+    accentColor: '#F59E0B',
+    logoClassName: 'filter drop-shadow-[0_20px_40px_rgba(245,158,11,0.25)] contrast-[1.03]',
   },
   {
     number: '04',
     id: 'e-cell',
     title: 'E-Cell',
-    subtitle: 'Venture & Incubation Cell',
+    subtitle: 'Woxsen E-Cell · Venture & Incubation',
     role: 'Entrepreneurship Cell · Ecosystem & Innovation',
     period: '2023 — 2025',
     category: 'Venture & Student Innovation',
+    tag: 'VENTURE ECOSYSTEM',
+    quote: '“Fostering student entrepreneurship & early-stage builders.”',
     description:
       'Driving student entrepreneurship programs, organizing venture initiatives, and fostering a collaborative ecosystem for early-stage builders and innovators.',
     pillars: ['Venture Ecosystem', 'Student Innovation', 'Initiative Leadership'],
-    visualComponent: ECellVisual,
+    logo: ecellLogo,
+    alt: 'E-Cell — Woxsen University logo',
+    backgroundGradient:
+      'radial-gradient(ellipse at 50% 35%, rgba(16, 185, 129, 0.18) 0%, rgba(15, 23, 42, 0.4) 45%, #050B0E 85%)',
+    glowGradient:
+      'radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, rgba(6, 182, 212, 0.18) 60%, transparent 80%)',
+    accentColor: '#10B981',
+    logoClassName: 'filter drop-shadow-[0_18px_36px_rgba(16,185,129,0.22)] brightness-[1.06] contrast-[1.04]',
   },
 ];
 
 export const ExperienceSection: React.FC = () => {
-  const [activeId, setActiveId] = useState<string>(experiences[0].id);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
   // Editorial headline animation variants
@@ -123,28 +162,15 @@ export const ExperienceSection: React.FC = () => {
     },
   };
 
-  const rowVariants: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0.3 : 0.75,
-        ease: transitionEase,
-        delay: shouldReduceMotion ? 0 : 0.15 + index * 0.08,
-      },
-    }),
-  };
-
   return (
     <section
       id="experience"
       aria-label="Experience"
-      className="relative w-full border-t border-border/80 bg-background py-24 sm:py-32 md:py-44 select-none"
+      className="relative w-full border-t border-border/80 bg-background py-20 sm:py-28 md:py-36 select-none overflow-hidden"
     >
-      <div className="max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 lg:px-16 space-y-16 sm:space-y-20 md:space-y-28">
+      <div className="w-[94vw] max-w-[1680px] mx-auto space-y-16 sm:space-y-20 md:space-y-28">
         {/* ========================================================================= */}
-        {/* SECTION INTRO & EDITORIAL HEADLINE                                        */}
+        {/* 1. SECTION INTRO & EDITORIAL HEADLINE                                     */}
         {/* ========================================================================= */}
         <motion.div
           initial="hidden"
@@ -154,7 +180,6 @@ export const ExperienceSection: React.FC = () => {
         >
           {/* Left Column: Label + Masked Display Headline (7 cols) */}
           <div className="lg:col-span-7 space-y-5 md:space-y-7">
-            {/* Editorial Label: 05 / EXPERIENCE */}
             <motion.div variants={supportingVariants} className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-subtle" />
               <span className="text-[12px] md:text-[13px] font-mono font-semibold tracking-[0.2em] uppercase text-accent">
@@ -162,7 +187,6 @@ export const ExperienceSection: React.FC = () => {
               </span>
             </motion.div>
 
-            {/* Display Headline */}
             <div className="space-y-0 text-left">
               <div className="text-mask-wrapper">
                 <motion.h2
@@ -206,160 +230,286 @@ export const ExperienceSection: React.FC = () => {
         </motion.div>
 
         {/* ========================================================================= */}
-        {/* MAIN EDITORIAL EXPERIENCE LIST & VISUAL PREVIEW ZONE                     */}
+        {/* 2. FULL-WIDTH EXPERIENCE CARDS LIST (EXPANSIVE 94VW FOOTPRINT)           */}
         {/* ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-          {/* Left / Main Column: Editorial Experience Rows (7 or 8 cols on desktop) */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col">
-            {experiences.map((item, index) => {
-              const isSelected = item.id === activeId;
+        <div className="space-y-12 sm:space-y-16 md:space-y-20">
+          {experiences.map((item) => {
+            const isHovered = hoveredId === item.id;
 
-              return (
-                <motion.article
-                  key={item.id}
-                  custom={index}
-                  variants={rowVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.1 }}
-                  onMouseEnter={() => setActiveId(item.id)}
-                  onClick={() => setActiveId(item.id)}
-                  tabIndex={0}
-                  onFocus={() => setActiveId(item.id)}
-                  className={`group relative w-full py-10 sm:py-14 md:py-16 border-t border-border/70 last:border-b transition-colors duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                    isSelected ? 'bg-surface/30' : 'hover:bg-surface/20'
-                  }`}
-                >
-                  <div className="flex flex-col space-y-5 sm:space-y-6">
-                    {/* Top Row: Index number + Category + Active Indicator */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={`font-mono text-[13px] sm:text-[14px] font-bold transition-colors duration-300 ${
-                            isSelected ? 'text-accent' : 'text-secondary-muted group-hover:text-accent'
-                          }`}
-                        >
-                          {item.number}
-                        </span>
-                        <span className="text-[11px] font-mono tracking-[0.18em] uppercase text-secondary-muted bg-surface-subtle px-2.5 py-0.5 rounded border border-border/60">
-                          {item.category}
-                        </span>
-                      </div>
+            return (
+              <div
+                key={item.id}
+                onMouseEnter={() => setHoveredId(item.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                tabIndex={0}
+                onFocus={() => setHoveredId(item.id)}
+                onBlur={() => setHoveredId(null)}
+                onClick={() => setHoveredId(isHovered ? null : item.id)}
+                className="relative w-full lg:h-[540px] xl:h-[580px] cursor-pointer outline-none select-none"
+              >
+                {/* ----------------------------------------------------------------- */}
+                {/* DESKTOP VIEWPORT: 60FPS GPU COMPOSITED TWO-CARD UNFOLDING         */}
+                {/* ----------------------------------------------------------------- */}
+                <div className="hidden lg:block relative w-full h-full">
+                  {/* CARD 1: DETAILS CARD (Hidden initially at opacity: 0, reveals on hover) */}
+                  <motion.div
+                    initial={false}
+                    animate={{
+                      x: shouldReduceMotion
+                        ? '0%'
+                        : isHovered
+                        ? '0%'
+                        : 'calc(50% + 14px)',
+                      opacity: isHovered ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: shouldReduceMotion ? 0.2 : 0.65,
+                      ease: transitionEase,
+                    }}
+                    className="absolute top-0 bottom-0 left-0 w-[calc(50%-14px)] z-10 will-change-transform"
+                    style={{
+                      transform: 'translateZ(0)',
+                      pointerEvents: isHovered ? 'auto' : 'none',
+                    }}
+                  >
+                    <div
+                      className={`relative w-full h-full p-8 sm:p-10 md:p-12 xl:p-14 flex flex-col justify-between rounded-3xl bg-[#0D0E13] border transition-colors duration-300 shadow-2xl ${
+                        isHovered
+                          ? 'border-white/20'
+                          : 'border-white/[0.09]'
+                      }`}
+                    >
+                      {/* Top Row: Index + Category + Period + Arrow */}
+                      <div className="flex items-center justify-between border-b border-white/[0.08] pb-6">
+                        <div className="flex items-center gap-3.5">
+                          <span className="font-mono text-[14px] sm:text-[15px] font-bold text-accent">
+                            {item.number}
+                          </span>
+                          <span className="text-[11px] sm:text-[12px] font-mono tracking-[0.18em] uppercase text-white/70 bg-white/[0.05] px-3.5 py-1 rounded-full border border-white/10">
+                            {item.category}
+                          </span>
+                        </div>
 
-                      <div className="flex items-center gap-3">
-                        <span className="text-[11px] font-mono text-secondary-muted uppercase tracking-wider hidden sm:inline-block">
-                          {item.period}
-                        </span>
-                        {/* Hover Arrow Icon */}
-                        <div
-                          className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                            isSelected
-                              ? 'border-accent bg-accent text-white shadow-sm'
-                              : 'border-border/80 text-secondary group-hover:border-accent group-hover:text-accent group-hover:translate-x-1'
-                          }`}
-                        >
-                          <ArrowUpRight className="w-4 h-4" />
+                        <div className="flex items-center gap-4">
+                          <span className="text-[12px] sm:text-[13px] font-mono text-white/50 uppercase tracking-wider hidden sm:inline-block">
+                            {item.period}
+                          </span>
+                          <div
+                            className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                              isHovered
+                                ? 'border-accent bg-accent text-white shadow-md'
+                                : 'border-white/20 text-white/60'
+                            }`}
+                          >
+                            <ArrowUpRight className="w-4 h-4" />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Middle Row: Large Title with Orange Dot on Hover */}
-                    <div className="flex items-baseline gap-3">
-                      <span
-                        className={`w-2 h-2 rounded-full bg-accent transition-all duration-300 shrink-0 self-center ${
-                          isSelected ? 'opacity-100 scale-100' : 'opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100'
-                        }`}
-                      />
-                      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                        <h3
-                          className={`text-[28px] sm:text-[38px] md:text-[46px] lg:text-[52px] xl:text-[58px] font-black tracking-tight uppercase leading-[1.02] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                            isSelected
-                              ? 'text-primary translate-x-1.5 sm:translate-x-2'
-                              : 'text-primary/90 group-hover:text-primary group-hover:translate-x-1.5 sm:group-hover:translate-x-2'
-                          }`}
-                        >
-                          {item.title}
-                        </h3>
-                        {item.subtitle && (
-                          <span className="text-[12px] sm:text-[13px] md:text-[14px] font-mono uppercase tracking-wider text-secondary-muted">
-                            // {item.subtitle}
-                          </span>
+                      {/* Middle Content: Large Typography & Narrative */}
+                      <div className="space-y-4 sm:space-y-5 my-auto py-4">
+                        <div className="flex items-baseline gap-3.5">
+                          <span
+                            className={`w-2.5 h-2.5 rounded-full bg-accent transition-all duration-300 shrink-0 self-center ${
+                              isHovered
+                                ? 'opacity-100 scale-100'
+                                : 'opacity-0 scale-0'
+                            }`}
+                          />
+                          <div className="space-y-1.5">
+                            <h3
+                              className={`text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-black uppercase tracking-tight text-white leading-[0.98] transition-transform duration-300 ${
+                                isHovered ? 'translate-x-1' : ''
+                              }`}
+                            >
+                              {item.title}
+                            </h3>
+                            {item.subtitle && (
+                              <p className="text-[13px] sm:text-[14px] md:text-[15px] font-mono uppercase tracking-wider text-white/50">
+                                // {item.subtitle}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="pl-6 text-[13px] sm:text-[14px] md:text-[15px] font-mono tracking-[0.15em] uppercase text-accent font-semibold">
+                          {item.role}
+                        </div>
+
+                        {item.quote && (
+                          <p className="pl-6 text-[14px] sm:text-[15px] md:text-[16px] font-mono uppercase tracking-wider text-white/85 font-medium">
+                            {item.quote}
+                          </p>
                         )}
-                      </div>
-                    </div>
 
-                    {/* Sub-Headline: Role & Context */}
-                    <div className="pl-5 sm:pl-5 space-y-3">
-                      <div className="text-[12px] sm:text-[13px] font-mono tracking-[0.15em] uppercase text-accent font-semibold">
-                        {item.role}
-                      </div>
-
-                      {/* Positioning Quote (if present) */}
-                      {item.quote && (
-                        <p className="text-[13px] sm:text-[14px] font-mono uppercase tracking-wider text-primary/80 font-medium">
-                          {item.quote}
+                        <p className="pl-6 text-[15px] sm:text-[16px] md:text-[17px] xl:text-[18px] text-secondary leading-relaxed font-normal max-w-[680px]">
+                          {item.description}
                         </p>
-                      )}
+                      </div>
 
-                      {/* Description */}
-                      <p className="text-[15px] sm:text-[16px] md:text-[17px] text-secondary leading-relaxed font-normal max-w-[640px]">
-                        {item.description}
-                      </p>
-
-                      {/* Editorial Focus Tags */}
-                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                      {/* Bottom Row: Key Focus Pillars */}
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-5 border-t border-white/[0.08]">
                         {item.pillars.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-secondary bg-surface px-2.5 py-1 rounded border border-border/70 shadow-subtle"
+                            className="text-[11px] sm:text-[12px] font-mono tracking-wider uppercase text-white/70 bg-white/[0.04] px-3.5 py-1.5 rounded-lg border border-white/10 shadow-subtle"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-
-                      {/* Mobile Inline Visual preview (rendered only on small screens for easy tap exploration) */}
-                      <div className="pt-4 lg:hidden block">
-                        {isSelected && (
-                          <div className="pt-2">
-                            <item.visualComponent isActive={true} />
-                          </div>
-                        )}
-                      </div>
                     </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
+                  </motion.div>
 
-          {/* Right Column: Sticky Contextual Visual Preview (Desktop Only) */}
-          <div className="hidden lg:block lg:col-span-5 xl:col-span-4 sticky top-28 pt-2">
-            <div className="relative w-full min-h-[440px] sm:min-h-[480px] md:min-h-[500px]">
-              {experiences.map((item) => {
-                const isCurrent = item.id === activeId;
-                return (
+                  {/* CARD 2: LOGO CARD (Visible by default in center, slides right on hover) */}
                   <motion.div
-                    key={item.id}
                     initial={false}
                     animate={{
-                      opacity: isCurrent ? 1 : 0,
-                      scale: isCurrent ? 1 : 0.98,
+                      x: shouldReduceMotion
+                        ? '0%'
+                        : isHovered
+                        ? '0%'
+                        : 'calc(-50% - 14px)',
                     }}
                     transition={{
-                      duration: shouldReduceMotion ? 0.15 : 0.35,
+                      duration: shouldReduceMotion ? 0.2 : 0.65,
                       ease: transitionEase,
                     }}
-                    className={`absolute inset-0 w-full h-full transform-gpu ${
-                      isCurrent ? 'pointer-events-auto z-10' : 'pointer-events-none z-0'
-                    }`}
+                    className="absolute top-0 bottom-0 right-0 w-[calc(50%-14px)] z-20 will-change-transform"
+                    style={{ transform: 'translateZ(0)' }}
                   >
-                    <item.visualComponent isActive={isCurrent} />
+                    <div
+                      className="relative w-full h-full p-8 sm:p-10 md:p-12 xl:p-14 flex flex-col justify-between rounded-3xl bg-[#09080E] border border-white/[0.1] shadow-2xl overflow-hidden select-none"
+                      style={{ background: item.backgroundGradient }}
+                    >
+                      {/* Top Row: Meta Label & Category Tag */}
+                      <div className="relative z-10 flex items-center justify-between border-b border-white/[0.08] pb-6">
+                        <div className="flex items-center gap-2.5">
+                          <span
+                            className="w-2 h-2 rounded-full animate-pulse-subtle"
+                            style={{ backgroundColor: item.accentColor }}
+                          />
+                          <span
+                            className="text-[12px] font-mono tracking-[0.2em] uppercase font-bold"
+                            style={{ color: item.accentColor }}
+                          >
+                            {item.number} // {item.title}
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-mono tracking-widest text-white/60 uppercase border border-white/10 px-3 py-1 rounded-full bg-white/[0.04] backdrop-blur-sm">
+                          {item.tag}
+                        </span>
+                      </div>
+
+                      {/* Hero Transparent Logo (Large, Centered) */}
+                      <div className="relative z-10 flex-1 flex items-center justify-center my-6">
+                        <div className="relative max-w-[320px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[480px] max-h-[280px] sm:max-h-[320px] md:max-h-[360px] w-full aspect-auto flex items-center justify-center">
+                          <img
+                            src={item.logo}
+                            alt={item.alt}
+                            className={`w-full h-full object-contain ${item.logoClassName || ''}`}
+                            loading="eager"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Bottom Row: Full Organization Subtitle */}
+                      <div className="relative z-10 text-center border-t border-white/[0.08] pt-5">
+                        <p className="text-[14px] sm:text-[15px] md:text-[16px] font-medium text-white/90 tracking-tight">
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </div>
                   </motion.div>
-                );
-              })}
-            </div>
-          </div>
+                </div>
+
+                {/* ----------------------------------------------------------------- */}
+                {/* MOBILE / TABLET VIEWPORT: STACKED REVEAL                          */}
+                {/* ----------------------------------------------------------------- */}
+                <div className="block lg:hidden space-y-4">
+                  {/* Mobile Logo Card (Shown First / Always Visible) */}
+                  <div
+                    className="w-full p-8 sm:p-10 rounded-3xl bg-[#09080E] border border-white/[0.1] shadow-2xl flex flex-col items-center justify-center space-y-4"
+                    style={{ background: item.backgroundGradient }}
+                  >
+                    <div className="max-w-[260px] sm:max-w-[320px] h-[190px] flex items-center justify-center">
+                      <img
+                        src={item.logo}
+                        alt={item.alt}
+                        className={`w-full h-full object-contain ${item.logoClassName || ''}`}
+                      />
+                    </div>
+                    <p className="text-[14px] font-medium text-white/90 text-center">
+                      {item.subtitle}
+                    </p>
+                    <div className="pt-1 text-center">
+                      <span className="text-[11px] font-mono uppercase tracking-widest text-accent flex items-center justify-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>{isHovered ? 'Tap to hide details' : 'Tap for details'}</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Mobile Details Card (Revealed on Tap) */}
+                  <AnimatePresence>
+                    {isHovered && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, y: -10 }}
+                        animate={{ opacity: 1, height: 'auto', y: 0 }}
+                        exit={{ opacity: 0, height: 0, y: -10 }}
+                        transition={{ duration: 0.35, ease: transitionEase }}
+                        className="w-full overflow-hidden"
+                      >
+                        <div className="relative w-full p-7 sm:p-9 rounded-3xl bg-[#0D0E13] border border-white/[0.1] shadow-2xl space-y-6">
+                          <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                            <div className="flex items-center gap-2.5">
+                              <span className="font-mono text-[14px] font-bold text-accent">
+                                {item.number}
+                              </span>
+                              <span className="text-[11px] font-mono tracking-wider uppercase text-white/70 bg-white/[0.05] px-3.5 py-1 rounded-full border border-white/10">
+                                {item.category}
+                              </span>
+                            </div>
+                            <span className="text-[12px] font-mono text-white/50 uppercase">
+                              {item.period}
+                            </span>
+                          </div>
+
+                          <div className="space-y-3">
+                            <h3 className="text-[32px] sm:text-[40px] font-black tracking-tight text-white uppercase leading-tight">
+                              {item.title}
+                            </h3>
+                            <div className="text-[13px] font-mono tracking-wider uppercase text-accent font-semibold">
+                              {item.role}
+                            </div>
+                            {item.quote && (
+                              <p className="text-[13px] font-mono uppercase text-white/80">
+                                {item.quote}
+                              </p>
+                            )}
+                            <p className="text-[15px] text-secondary leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+
+                          <div className="flex flex-wrap gap-2 pt-3 border-t border-white/[0.08]">
+                            {item.pillars.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-[11px] font-mono uppercase text-white/70 bg-white/[0.04] px-3 py-1 rounded border border-white/10"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
