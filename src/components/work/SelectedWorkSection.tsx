@@ -24,7 +24,7 @@ const projects: ProjectData[] = [
     category: 'AI · PRODUCT · FULL STACK',
     description:
       'An AI-powered internship discovery platform designed to help students discover relevant opportunities faster.',
-    href: '#internedge',
+    href: 'https://intern-edge-39qr.vercel.app',
     logo: internEdgeLogo,
     visualComponent: InternEdgeVisual,
   },
@@ -35,7 +35,7 @@ const projects: ProjectData[] = [
     category: 'AI · EDUCATION · PRODUCT',
     description:
       'A digital education platform focused on creating a smarter and more connected learning experience.',
-    href: '#edunex',
+    href: 'https://sip-edunex.vercel.app',
     logo: eduNexLogo,
     visualComponent: EduNexVisual,
   },
@@ -69,7 +69,7 @@ const projects: ProjectData[] = [
     description:
       'An AI-powered internet context translator that explains slang, screenshots, memes, references and the meaning behind online language.',
     quote: 'THE INTERNET MOVES FASTER THAN PEOPLE DO. NOCAP CLOSES THAT GAP.',
-    href: '#nocap',
+    href: 'https://nocap-pi-ten.vercel.app/',
     logo: noCapLogo,
     visualComponent: NoCapVisual,
   },
@@ -121,14 +121,14 @@ export const SelectedWorkSection: React.FC = () => {
         >
           {/* Left Column: Label + Huge Title (7 cols) */}
           <div className="lg:col-span-7 space-y-5 md:space-y-7">
-            {/* Editorial Label: 03 / PROJECTS */}
+            {/* Editorial Label: PROJECTS */}
             <motion.div
               variants={supportingVariants}
               className="flex items-center gap-2.5"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-subtle" />
               <span className="text-[12px] md:text-[13px] font-mono font-semibold tracking-[0.2em] uppercase text-accent">
-                03 / PROJECTS
+                PROJECTS
               </span>
             </motion.div>
 

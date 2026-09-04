@@ -1,8 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../common/Button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { useRouter } from '../../context/RouterContext';
 
 export const Navbar: React.FC = () => {
+  const { pathname, navigate } = useRouter();
+  const isAboutActive = pathname === '/about';
+
+  const handleBrandClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+  };
+
+  const handleWorkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/#work');
+  };
+
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/about');
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/#contact');
+  };
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
@@ -14,44 +39,52 @@ export const Navbar: React.FC = () => {
         {/* Brand / Name */}
         <div className="flex items-center gap-3">
           <a
-            href="#"
+            href="/"
+            onClick={handleBrandClick}
             className="text-[15px] font-bold tracking-tight text-primary uppercase hover:opacity-75 transition-opacity"
           >
             Mihir Kalway<span className="text-secondary-muted font-normal text-xs ml-0.5">®</span>
           </a>
         </div>
 
-        {/* Availability Badge - Center */}
-        <div className="hidden md:flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface/60 border border-border/60 text-[12px] font-medium text-secondary">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="tracking-wide uppercase text-[11px] font-mono">Available for select projects</span>
-        </div>
+        {/* Navigation Items + Theme Switcher */}
+        <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+          <nav className="flex items-center gap-5 sm:gap-6 md:gap-8">
+            <a
+              href="/#work"
+              onClick={handleWorkClick}
+              className="text-[13px] font-medium tracking-wide uppercase text-secondary hover:text-primary transition-colors"
+            >
+              Work
+            </a>
+            <a
+              href="/about"
+              onClick={handleAboutClick}
+              className={`text-[13px] tracking-wide uppercase transition-colors flex items-center gap-1.5 ${
+                isAboutActive
+                  ? 'text-primary font-bold'
+                  : 'text-secondary hover:text-primary font-medium'
+              }`}
+            >
+              About
+              {isAboutActive && (
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-subtle" />
+              )}
+            </a>
+          </nav>
 
-        {/* Minimal Navigation Items */}
-        <nav className="flex items-center gap-6 md:gap-8">
-          <a
-            href="#work"
-            className="text-[13px] font-medium tracking-wide uppercase text-secondary hover:text-primary transition-colors"
-          >
-            Work
-          </a>
-          <a
-            href="#about"
-            className="text-[13px] font-medium tracking-wide uppercase text-secondary hover:text-primary transition-colors"
-          >
-            About
-          </a>
-          <Button
-            variant="primary"
-            size="sm"
-            href="#contact"
-          >
-            Let's Talk
-          </Button>
-        </nav>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle />
+            <Button
+              variant="primary"
+              size="sm"
+              href="/#contact"
+              onClick={handleContactClick}
+            >
+              Let's Talk
+            </Button>
+          </div>
+        </div>
       </div>
     </motion.header>
   );

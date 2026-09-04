@@ -344,14 +344,14 @@ export const TechStackSection: React.FC = () => {
         >
           {/* Left Column: Label + Headline (7 cols) */}
           <div className="lg:col-span-7 space-y-5 md:space-y-7">
-            {/* Editorial Label: 04 / TECH STACK */}
+            {/* Editorial Label: TECH STACK */}
             <motion.div
               variants={labelVariants}
               className="flex items-center gap-2.5"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-subtle" />
               <span className="text-[12px] md:text-[13px] font-mono font-semibold tracking-[0.2em] uppercase text-accent">
-                04 / TECH STACK
+                TECH STACK
               </span>
             </motion.div>
 

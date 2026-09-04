@@ -183,7 +183,7 @@ export const ExperienceSection: React.FC = () => {
             <motion.div variants={supportingVariants} className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse-subtle" />
               <span className="text-[12px] md:text-[13px] font-mono font-semibold tracking-[0.2em] uppercase text-accent">
-                05 / EXPERIENCE
+                EXPERIENCE
               </span>
             </motion.div>
 

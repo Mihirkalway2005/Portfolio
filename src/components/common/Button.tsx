@@ -110,7 +110,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary: {
       outer: 'bg-accent text-white border border-transparent shadow-subtle hover:shadow-editorial',
       inner: 'bg-accent',
-      expandingCapsule: 'bg-white',
+      expandingCapsule: 'bg-surface',
       arrowColor: 'text-accent',
       textRest: 'text-white',
       textHover: 'group-hover/btn:text-accent',
@@ -118,17 +118,17 @@ export const Button: React.FC<ButtonProps> = ({
     // Secondary: Clean Warm Surface Pill
     secondary: {
       outer: 'bg-surface text-primary border border-border/80 shadow-subtle hover:shadow-editorial',
-      inner: 'bg-surface border border-white',
+      inner: 'bg-surface border border-border/40',
       expandingCapsule: 'bg-accent',
       arrowColor: 'text-white',
       textRest: 'text-primary',
       textHover: 'group-hover/btn:text-white',
     },
-    // Accent / Dark: Black Pill
+    // Accent / Dark: Pill
     accent: {
       outer: 'bg-primary text-primary-foreground border border-transparent shadow-subtle hover:shadow-editorial',
       inner: 'bg-primary',
-      expandingCapsule: 'bg-white',
+      expandingCapsule: 'bg-surface',
       arrowColor: 'text-primary',
       textRest: 'text-primary-foreground',
       textHover: 'group-hover/btn:text-primary',

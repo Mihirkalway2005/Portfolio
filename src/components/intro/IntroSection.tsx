@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Code2, Cpu, Palette, Zap, ArrowUpRight } from 'lucide-react';
 import { Button } from '../common/Button';
+import { useRouter } from '../../context/RouterContext';
 
 // Easing curve matching Folioblox premium editorial pacing
 const transitionEase = [0.16, 1, 0.3, 1] as const;
@@ -46,6 +47,7 @@ const pillars: CorePillar[] = [
 ];
 
 export const IntroSection: React.FC = () => {
+  const { navigate } = useRouter();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   // Label reveal animation
@@ -202,9 +204,13 @@ export const IntroSection: React.FC = () => {
               <Button
                 variant="primary"
                 size="md"
-                href="#contact"
+                href="/about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/about');
+                }}
               >
-                LET'S BUILD SOMETHING
+                KNOW MORE
               </Button>
 
               <Button

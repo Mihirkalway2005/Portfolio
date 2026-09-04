@@ -93,7 +93,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               {project.number} // {project.category}
             </div>
 
-            <a href={project.href} className="inline-block group/title text-left">
+            <a
+              href={project.href}
+              target={project.href.startsWith('http') ? '_blank' : undefined}
+              rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="inline-block group/title text-left"
+            >
               <h3 className="text-[32px] sm:text-[42px] md:text-[48px] lg:text-[54px] font-black text-primary tracking-tight leading-[1.04] transition-colors duration-300 group-hover/title:text-accent">
                 {project.title}
               </h3>
@@ -118,6 +123,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               variant="secondary"
               size="sm"
               href={project.href}
+              target={project.href.startsWith('http') ? '_blank' : undefined}
+              rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             >
               VIEW PROJECT
             </Button>
@@ -136,6 +143,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         >
           <a
             href={project.href}
+            target={project.href.startsWith('http') ? '_blank' : undefined}
+            rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className="block w-full h-full cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.015]"
             aria-label={`View ${project.title}`}
           >

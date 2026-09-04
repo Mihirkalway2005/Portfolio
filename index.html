@@ -12,6 +12,22 @@
     <meta property="og:description" content="I build products, intelligent systems and experiences at the intersection of technology, design and ideas." />
     <meta property="og:type" content="website" />
     
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Prevent Theme Flash (FOUC) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = saved === 'dark' || (!saved && systemDark) ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          var meta = document.querySelector('meta[name="color-scheme"]');
+          if (meta) meta.content = theme;
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Google Fonts: Geist, Inter, Geist Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

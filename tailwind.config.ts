@@ -1,33 +1,34 @@
 import type { Config } from 'tailwindcss';
 
 export default {
+  darkMode: ['selector', '[data-theme="dark"]'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        background: '#F5F4F0',
+        background: 'rgb(var(--color-bg) / <alpha-value>)',
         surface: {
-          DEFAULT: '#FFFFFF',
-          muted: '#FBFBFA',
-          subtle: '#F0EFEA',
+          DEFAULT: 'rgb(var(--color-surface) / <alpha-value>)',
+          muted: 'rgb(var(--color-surface-muted) / <alpha-value>)',
+          subtle: 'rgb(var(--color-surface-subtle) / <alpha-value>)',
         },
         primary: {
-          DEFAULT: '#111111',
-          foreground: '#F5F4F0',
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-fg) / <alpha-value>)',
         },
         secondary: {
-          DEFAULT: '#6F6F6F',
-          muted: '#8C8C8C',
-          dark: '#3A3A3A',
+          DEFAULT: 'rgb(var(--color-secondary) / <alpha-value>)',
+          muted: 'rgb(var(--color-secondary-muted) / <alpha-value>)',
+          dark: 'rgb(var(--color-secondary-dark) / <alpha-value>)',
         },
         border: {
-          DEFAULT: '#E2E0D8',
-          subtle: 'rgba(0, 0, 0, 0.07)',
-          dark: 'rgba(0, 0, 0, 0.15)',
+          DEFAULT: 'rgb(var(--color-border) / <alpha-value>)',
+          subtle: 'rgb(var(--color-border-subtle) / <alpha-value>)',
+          dark: 'rgb(var(--color-border-dark) / <alpha-value>)',
         },
         accent: {
-          DEFAULT: '#FF5A00',
-          hover: '#E55100',
+          DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
+          hover: 'rgb(var(--color-accent-hover) / <alpha-value>)',
         },
       },
       fontFamily: {
