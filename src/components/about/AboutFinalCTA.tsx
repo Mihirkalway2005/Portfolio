@@ -118,11 +118,11 @@ export const AboutFinalCTA: React.FC = () => {
             {/* Direct Channels Quick Bar */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 lg:pt-0">
               <a
-                href="mailto:mihirkalway2005@gmail.com"
+                href="mailto:mihirkalway@gmail.com"
                 className="group flex items-center gap-2 text-[12px] font-mono text-secondary hover:text-accent transition-colors duration-200"
               >
                 <Mail className="w-3.5 h-3.5 text-accent" />
-                <span>mihirkalway2005@gmail.com</span>
+                <span>mihirkalway@gmail.com</span>
                 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
 

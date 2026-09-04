@@ -30,8 +30,8 @@ interface ContactChannel {
 const contactChannels: ContactChannel[] = [
   {
     label: 'EMAIL',
-    value: 'mihirkalway2005@gmail.com',
-    href: 'mailto:mihirkalway2005@gmail.com',
+    value: 'mihirkalway@gmail.com',
+    href: 'mailto:mihirkalway@gmail.com',
     icon: Mail,
     isExternal: false,
   },
@@ -189,7 +189,7 @@ export const ContactSection: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="mailto:mihirkalway2005@gmail.com"
+                href="mailto:mihirkalway@gmail.com"
                 iconDirection="up-right"
               >
                 LET'S TALK
